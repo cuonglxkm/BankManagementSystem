@@ -1,0 +1,78 @@
+﻿@model BankManagementSystem.Models.NhanVien
+
+@{
+    ViewData["Title"] = "Xóa nhân viên";
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0 text-danger">
+                    <i class="fas fa-user-times"></i> Xóa nhân viên
+                </h1>
+            </div>
+            <div class="col-sm-6 text-right">
+                <a asp-action="Index" class="btn btn-secondary btn-sm">
+                    <i class="fas fa-arrow-left"></i> Quay lại danh sách
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+
+        <div class="alert alert-danger">
+            <i class="fas fa-exclamation-triangle"></i>
+            Bạn có chắc chắn muốn <strong>xóa nhân viên này</strong> không?
+            <br />
+            <small>Hành động này không thể khôi phục.</small>
+        </div>
+
+        <div class="card card-danger">
+            <div class="card-header">
+                <h3 class="card-title"><i class="fas fa-info-circle"></i> Thông tin nhân viên</h3>
+            </div>
+
+            <div class="card-body">
+
+                <dl class="row">
+
+                    <dt class="col-sm-3">Họ tên</dt>
+                    <dd class="col-sm-9">@Model.HoTen</dd>
+
+                    <dt class="col-sm-3">Điện thoại</dt>
+                    <dd class="col-sm-9">@Model.DienThoai</dd>
+
+                    <dt class="col-sm-3">Email</dt>
+                    <dd class="col-sm-9">@Model.Email</dd>
+
+                    <dt class="col-sm-3">Chức vụ</dt>
+                    <dd class="col-sm-9">@Model.ChucVu</dd>
+
+                    <dt class="col-sm-3">Chi nhánh</dt>
+                    <dd class="col-sm-9">@Model.MaChiNhanhNavigation?.TenChiNhanh</dd>
+
+                </dl>
+
+            </div>
+
+            <div class="card-footer text-right">
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="MaNhanVien" />
+
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fas fa-trash"></i> Xóa nhân viên
+                    </button>
+
+                    <a asp-action="Index" class="btn btn-secondary">
+                        <i class="fas fa-times"></i> Hủy
+                    </a>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</section>
